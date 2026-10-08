@@ -5,7 +5,9 @@
 @layer base {
   html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
   body { @apply bg-paper font-sans text-ink antialiased overflow-x-hidden; }
-  h1, h2, h3 { @apply font-display tracking-tight; }
+  h1, h2, h3 { @apply font-display tracking-tight text-balance; }
+  p { @apply text-pretty; }
+  ::selection { @apply bg-mint text-white; }
   :focus-visible { @apply outline outline-2 outline-offset-2 outline-mint; }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
@@ -15,8 +17,13 @@
 
 @layer components {
   .container-x { @apply mx-auto w-full max-w-6xl px-5 sm:px-8; }
-  .btn { @apply inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold transition-colors; }
-  .btn-primary { @apply btn bg-mint text-white hover:bg-mint-dark; }
-  .btn-secondary { @apply btn border border-ink/20 bg-white text-ink hover:border-ink/50; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition duration-200 active:translate-y-px; }
+  .btn-primary { @apply btn bg-mint text-white shadow-sm shadow-mint/30 hover:bg-mint-dark; }
+  .btn-secondary { @apply btn border border-ink/15 bg-white text-ink hover:border-ink/40 hover:bg-paper; }
   .section { @apply py-20 sm:py-28; }
+  .dot-grid {
+    background-image: radial-gradient(rgb(18 32 47 / 0.12) 1px, transparent 1px);
+    background-size: 22px 22px;
+    mask-image: linear-gradient(to bottom, black 40%, transparent);
+  }
 }
